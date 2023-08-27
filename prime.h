@@ -1,13 +1,14 @@
 #pragma once
 #include<vector>
 #include<string>
+
 class Prime{
 
 private:
 std:: vector <int> *primes=new  std::vector <int>;
 std:: vector <std::string> *doubleSumsForPrime=new std::vector <std::string>;
 std:: vector <std::string> *tripleSumsForPrime=new std::vector <std::string>;
-    int num;
+int num;
     int belowPrimeNum;//amount of bleow prime for a number
     bool primeStatus=false;
 public:

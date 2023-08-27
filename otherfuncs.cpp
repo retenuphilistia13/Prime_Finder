@@ -89,19 +89,22 @@ if(p->GetNum()>2){
 int input(int num)
 {
 
+  std::string input;
+        std::cin >> input;
 
-    std::cin>>num;
+        if (input == "-1") {
+            return -1;
+        }
+
+        try {
+            if (std::stod(input) == static_cast<int>(std::stod(input))) {
+return std::stoi(input);
+            }
+        } catch (const std::exception&) {
+            return -1;
+            std::cout << "Invalid input. Please enter a valid number: ";
+        }
 
 
-while (!std::cin)
-{
-    std::cin.clear();           // Restore input stream to working state
-    std::cin.ignore(100, '\n'); // Get rid of any garbage that user might have entered
-    std::cout << "Invalid selection! Try again: " << std::endl;
-    std::cin >> num; // After cin is restored and any garbage in the stream has been cleared, store user input in number again
-}
-
-
-
-    return num;
+    return -1;
 }

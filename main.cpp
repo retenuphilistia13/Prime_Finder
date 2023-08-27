@@ -33,7 +33,7 @@ int main()
                 std::unique_ptr<Prime> p = std::make_unique<Prime>(std::stoi(input));
                 menu(p.get()); // Pass the raw pointer to the menu function
             } else {
-                std::cout << "Invalid Float" << std::endl;
+                std::cout << "Invalid input, Please enter a valid Integer number" << std::endl;
             }
         } catch (const std::exception&) {
             std::cout << "Invalid input. Please enter a valid number: ";
