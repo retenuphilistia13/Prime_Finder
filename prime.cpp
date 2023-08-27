@@ -137,7 +137,12 @@ if(num>2)
 
 
         for(int j=0; j<largestDigit; ++j)cout<<" ";//spacing (depend on the larges prime number value)
+if(read_digits(value)<largestDigit){//get the small number digit aligned with the larger digits like 3 to 100 or 10
 
+        int extraSpacing=largestDigit-read_digits(value);
+    for(int k=0;k<extraSpacing;k++)cout<<" ";
+
+}
         std::cout << value << " ";
         if(countL%5==4)cout<<endl;//go to new line every 5 number
         ++countL;

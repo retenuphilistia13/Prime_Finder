@@ -81,7 +81,6 @@ if(p->GetNum()>2){
     while(choice!=0);
 
 
-    //delete p;
 }
 
 
