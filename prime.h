@@ -2,16 +2,21 @@
 #include<vector>
 #include<string>
 
+#include<mutex>
 class Prime{
 
 private:
 std:: vector <int> *primes=new  std::vector <int>;
+  std::mutex primesMutex;
+
 std:: vector <std::string> *doubleSumsForPrime=new std::vector <std::string>;
 std:: vector <std::string> *tripleSumsForPrime=new std::vector <std::string>;
-int num;
-    int belowPrimeNum;//amount of bleow prime for a number
+ int num;
+        int belowPrimeNum;//amount of bleow prime for a number
     bool primeStatus=false;
+
 public:
+
 bool flagDouble=false;
 bool flagTriple=false;
 
@@ -28,9 +33,12 @@ void SetNum(int i);
      int GetNum();
 
 bool checkPrime(int n);
+
 void findSumsToPrime(int n);
 void assignBelowPrime(int n);
+
 void printBelowPrime();
+
 void printPrimeStatus();
 
 Prime(int num1){

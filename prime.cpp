@@ -18,6 +18,8 @@ void Prime::SetPrimeStatus(bool i){
 
 void Prime::setPrimes(int i)
 {
+        std::lock_guard<std::mutex> lock(primesMutex); // Lock the mutex for shared data access
+
     primes->push_back(i);
 }
 
@@ -41,12 +43,16 @@ int Prime::GetNum()
 
 void Prime::SetbelowPrimeNum(int i)
 {
+        std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
+
     belowPrimeNum=i;
 }
 
 
 int Prime::GetbelowPrimeNum()
 {
+        std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
+
     return belowPrimeNum;
 }
 
@@ -60,6 +66,7 @@ bool Prime::checkPrime(int n)
     bool numIsPrime = true;
 
 
+    std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
 
 
     for(int i = 2; i <= n / 2; ++i)
