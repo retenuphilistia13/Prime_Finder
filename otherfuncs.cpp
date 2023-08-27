@@ -42,11 +42,12 @@ void menu(Prime *p)
 
         case 1:
 if(p->GetNum()>2){
-            p->assignBelowPrime(p->GetNum());
-           p->printBelowPrime();
+         //   p->assignBelowPrime(p->GetNum());
+          // p->printBelowPrime();
            } else{
-                 p->assignBelowPrime(p->GetNum());
+         //        p->assignBelowPrime(p->GetNum());
            }
+           p->printBelowPrime();
             break;
         case 2:
             p->assignBelowPrime(p->GetNum());

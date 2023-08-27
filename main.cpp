@@ -18,6 +18,7 @@ void parallelAssignBelowPrime(Prime *p) {
     std::vector<std::future<void>> futures;
 
     for (int i = 0; i < numThreads; ++i) {
+
         int start = i * chunkSize + 2;
         int end = (i == numThreads - 1) ? num : (i + 1) * chunkSize + 1;
 
@@ -43,6 +44,7 @@ int main()
 
     while (true) {
                 std::cout << "\nEnter a positive number\n-1 to leave\n";
+
         std::string input;
         std::cin >> input;
 
@@ -53,13 +55,15 @@ int main()
         try {
             if (std::stod(input) == static_cast<int>(std::stod(input))) {
                 auto p = std::make_shared<Prime>(std::stoi(input));
+
                   // Use a future to wait for parallelAssignBelowPrime to finish
                 std::future<void> assignmentFuture = std::async(std::launch::async, parallelAssignBelowPrime, p.get());
 
                 // Wait for parallelAssignBelowPrime to finish
                 assignmentFuture.wait();
-menu(p.get());
-               // p->printBelowPrime();
+ // p->printBelowPrime();
+                menu(p.get());
+
 
             } else {
                 std::cout << "Invalid input, Please enter a valid Integer number" << std::endl;

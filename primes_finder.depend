@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1693161983 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\main.cpp
+1693171049 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\main.cpp
 	<iostream>
 	<vector>
 	<string>
@@ -10,21 +10,22 @@
 	"Prime.h"
 	"otherfuncs.h"
 
-1693163324 c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\prime.h
+1693170820 c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\prime.h
 	<vector>
 	<string>
 	<mutex>
 
-1693161121 c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\otherfuncs.h
+1693169534 c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\otherfuncs.h
+	"Prime.h"
 
-1693163362 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\prime.cpp
+1693169426 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\prime.cpp
 	<iostream>
 	<vector>
 	<sstream>
 	"Prime.h"
 	"otherFuncs.h"
 
-1693161297 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\otherfuncs.cpp
+1693169429 source:c:\users\ahmed\documents\projects\primes_finder\primes_finder\primes_finder\otherfuncs.cpp
 	<iostream>
 	"otherFuncs.h"
 	"Prime.h"

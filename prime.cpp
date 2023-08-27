@@ -9,16 +9,17 @@
 
 using namespace std;
 //void unique_elements(std::vector<string>& v);
-void Prime::SetPrimeStatus(bool i){
+   void Prime::SetPrimeStatus(bool i){
     primeStatus=i;
-}
-     int Prime::GetPrimeStatus(){
+    }
+
+    int Prime::GetPrimeStatus(){
          return primeStatus;
      }
 
 void Prime::setPrimes(int i)
 {
-        std::lock_guard<std::mutex> lock(primesMutex); // Lock the mutex for shared data access
+    std::lock_guard<std::mutex> lock(primesMutex); // Lock the mutex for shared data access
 
     primes->push_back(i);
 }
@@ -42,31 +43,25 @@ int Prime::GetNum()
 
 
 void Prime::SetbelowPrimeNum(int i)
-{
-        std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
-
+{   std::lock_guard<std::mutex> lock(belowPrimeNumMutex);
     belowPrimeNum=i;
 }
 
 
 int Prime::GetbelowPrimeNum()
 {
-        std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
-
+    std::lock_guard<std::mutex> lock(GetbelowPrimeNumMutex);
     return belowPrimeNum;
 }
 
 
 
-
-
 bool Prime::checkPrime(int n)
 {
+std::lock_guard<std::mutex> lock(checkPrimeMutex);
 
     bool numIsPrime = true;
 
-
-    std::lock_guard<std::mutex> lock(mutex); // Lock the mutex for shared data access
 
 
     for(int i = 2; i <= n / 2; ++i)
@@ -89,17 +84,17 @@ bool Prime::checkPrime(int n)
 
 
 void  Prime::printPrimeStatus(){
+
 GetPrimeStatus()==true ? printf("\n%d is a Prime number\n",GetNum()):printf("\n%d is not a Prime number\n",GetNum());
 
 }
 
 void Prime::assignBelowPrime(int n)//good
 {
-int counter=0;
 
 if(this->primes->size()>0)//if already assigned for the number
 {return;}
-
+/*
     for(int i=2; i<=n; ++i) //assigning
     {
 
@@ -116,7 +111,7 @@ if(this->primes->size()>0)//if already assigned for the number
 
     }
 
-
+*/
 
 }
 
@@ -145,6 +140,12 @@ if(num>2)
 
         for(int j=0; j<largestDigit; ++j)cout<<" ";//spacing (depend on the larges prime number value)
 
+if(read_digits(value)<largestDigit){//get the small number digit aligned with the larger digits like 3 to 100 or 10
+        int extraSpacing=largestDigit-read_digits(value);
+    for(int k=0;k<extraSpacing;k++){
+        cout<<" ";
+    }
+}
         std::cout << value << " ";
         if(countL%5==4)cout<<endl;//go to new line every 5 number
         ++countL;
@@ -162,7 +163,7 @@ void Prime::findSumsToPrime(int num)
 {
 
 //const int limit=3000;
-   std::ostringstream ss;//formatting str
+  std::ostringstream ss;//formatting str
     std::string str;
     unsigned int Size = getPrimes().size();
 
@@ -174,13 +175,8 @@ if((doubleSumsForPrime->size()>=1&&flagDouble)||(tripleSumsForPrime->size()>=1&&
 {goto print;}
 
 
-
-
     for(size_t i=0; i<=Size-1; ++i)
     {
-
-
-
 
 
         for(size_t j=i; j<=Size-1; ++j)
